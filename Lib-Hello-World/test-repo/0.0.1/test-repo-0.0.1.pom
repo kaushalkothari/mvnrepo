@@ -3,15 +3,14 @@
   <groupId>Lib-Hello-World</groupId>
   <artifactId>test-repo</artifactId>
   <version>0.0.1</version>
-  <properties>
+	<properties>
     <!-- github server corresponds to entry in ~/.m2/settings.xml -->
     <github.global.server>github</github.global.server>
 </properties>
-<distributionManagement>
+  <distributionManagement>
     <repository>
         <id>internal.repo</id>
-        <name>Temporary Staging Repository</name>
-        <url>file://${project.build.directory}/mvn-repo</url>
+        <url>file://{project.build.directory}/mvn-repo</url>
     </repository>
 </distributionManagement>
   <build>
@@ -32,10 +31,10 @@
             <altDeploymentRepository>internal.repo::default::file://${project.build.directory}/mvn-repo</altDeploymentRepository>
         </configuration>
     </plugin>
-   <plugin>	   
-	   <groupId>com.github.github</groupId>
+	 <plugin>
+         <groupId>com.github.github</groupId>
          <artifactId>site-maven-plugin</artifactId>
-         <version>0.12</version>
+         <version>0.11</version>
          <configuration>
               <!-- git commit message -->
               <message>Maven artifacts for ${project.version}</message>
